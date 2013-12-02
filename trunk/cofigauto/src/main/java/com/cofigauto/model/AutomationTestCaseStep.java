@@ -45,7 +45,7 @@ public class AutomationTestCaseStep {
 		}
 		
 		tempStr = getCellStringValue(row.getCell(ModelConstants.DetailsSheet.FAIL_TEST_IF_FAIL));
-		if(StringUtils.isNotBlank(tempStr) && tempStr.trim().equalsIgnoreCase("Y")){
+		if(StringUtils.isNotBlank(tempStr) && tempStr.trim().equalsIgnoreCase("N")){
 			this.failTestCaseIfFails = true;
 		}
 	}

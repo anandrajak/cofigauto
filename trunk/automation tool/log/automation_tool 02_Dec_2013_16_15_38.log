@@ -1,0 +1,147 @@
+2013-12-02 16:15:38,583 INFO  [AutomationTestSuite - 41] - Main Sheet Found
+2013-12-02 16:15:38,591 INFO  [AutomationTestCase - 75] - Total steps to be executed in test case are 19
+2013-12-02 16:15:38,591 INFO  [AutomationTestSuite - 67] - Total test cases to be executed are 1. Out of configured 1 test cases
+2013-12-02 16:15:43,882 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=LAUNCH, windowName=Gmail Login Launch, reportingName=gmail login, identifier=https://mail.google.com/, identifierType=, data=]
+2013-12-02 16:15:44,504 INFO  [Reflections - 250] - Reflections took 574 ms to scan 1 urls, producing 679 keys and 3140 values 
+2013-12-02 16:15:44,516 INFO  [ActionCommandFactory - 46] - Command Registered.........  PRINT_TITLE
+2013-12-02 16:15:44,516 INFO  [ActionCommandFactory - 46] - Command Registered.........  WAIT
+2013-12-02 16:15:44,517 INFO  [ActionCommandFactory - 46] - Command Registered.........  WAIT_UNTIL
+2013-12-02 16:15:44,517 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_CSS_PROPERTY
+2013-12-02 16:15:44,517 INFO  [ActionCommandFactory - 46] - Command Registered.........  ENTER_VALUE
+2013-12-02 16:15:44,518 INFO  [ActionCommandFactory - 46] - Command Registered.........  SWITCH_WINDOW
+2013-12-02 16:15:44,518 INFO  [ActionCommandFactory - 46] - Command Registered.........  SWITCH_TO_MAIN_WINDOW
+2013-12-02 16:15:44,518 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_PROPERTY
+2013-12-02 16:15:44,519 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_TITLE
+2013-12-02 16:15:44,519 INFO  [ActionCommandFactory - 46] - Command Registered.........  CLOSE_WINDOW
+2013-12-02 16:15:44,519 INFO  [ActionCommandFactory - 46] - Command Registered.........  CLICK
+2013-12-02 16:15:44,520 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_LOCATION
+2013-12-02 16:15:44,520 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_SIZE
+2013-12-02 16:15:44,521 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY
+2013-12-02 16:15:44,521 INFO  [ActionCommandFactory - 46] - Command Registered.........  VERIFY_TEXT
+2013-12-02 16:15:44,521 INFO  [ActionCommandFactory - 46] - Command Registered.........  LAUNCH
+2013-12-02 16:15:44,522 INFO  [ActionCommandFactory - 46] - Command Registered.........  BROWSE_BACK
+2013-12-02 16:15:44,522 INFO  [Launch - 34] - Executing LAUNCH for step
+2013-12-02 16:15:48,677 INFO  [TestCaseContext - 107] - found new window with handle {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:48,678 INFO  [TestCaseContext - 108] - New window number = 0
+2013-12-02 16:15:48,678 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:48,699 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:48,731 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:48,731 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=CLICK, windowName=Gmail Login Launch, reportingName=Gmail Login Launch, identifier=gmail-sign-in, identifierType=ID, data=]
+2013-12-02 16:15:48,898 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:49,538 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:49,546 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:49,546 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=WAIT_UNTIL, windowName=Gmail Login Page, reportingName=WAIT UNTIL, identifier=Email, identifierType=ID, data=20]
+2013-12-02 16:15:49,547 INFO  [WaitUntil - 79] - Executing WAIT UNTIL for step
+2013-12-02 16:15:49,568 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning true
+2013-12-02 16:15:49,574 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:49,581 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:49,589 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:49,589 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=ENTER_VALUE, windowName=Gmail Login Page, reportingName=ENTER USERID, identifier=Email, identifierType=ID, data=<email id>]
+2013-12-02 16:15:49,673 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:49,680 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:49,710 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:49,710 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=ENTER_VALUE, windowName=Gmail Login Page, reportingName=ENTER Password, identifier=Passwd, identifierType=ID, data=<password>]
+2013-12-02 16:15:50,082 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:50,091 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:50,099 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:50,099 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=CLICK, windowName=Gmail Login Page, reportingName=SIGN IN, identifier=signIn, identifierType=ID, data=]
+2013-12-02 16:15:50,863 INFO  [TestCaseContext - 118] - Total windows open = 1
+2013-12-02 16:15:51,177 INFO  [TestCaseContext - 119] - Current window handle = {3d25f068-b72d-4b72-83ba-d4e876e1e8c2}
+2013-12-02 16:15:51,185 INFO  [TestCaseContext - 120] - Current window number = 1
+2013-12-02 16:15:51,185 INFO  [AutomationController - 59] - Executing step:- AutomationTestCaseStep [action=WAIT_UNTIL, windowName=INBOX, reportingName=WAIT UNTIL, identifier=gbg6, identifierType=ID, data=50]
+2013-12-02 16:15:51,185 INFO  [WaitUntil - 79] - Executing WAIT UNTIL for step
+2013-12-02 16:15:51,195 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:51,195 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:52,208 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:52,209 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:53,222 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:53,223 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:54,236 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:54,236 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:55,249 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:55,249 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:56,263 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:56,263 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:57,276 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:57,277 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:58,291 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:58,291 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:15:59,305 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:15:59,306 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:00,319 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:00,320 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:01,334 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:01,335 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:02,348 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:02,349 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:03,362 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:03,362 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:04,375 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:04,375 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:05,388 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:05,388 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:06,404 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:06,404 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:07,418 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:07,419 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:08,432 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:08,433 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:09,448 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:09,449 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:10,463 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:10,464 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:11,477 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:11,478 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:12,492 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:12,492 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:13,506 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:13,506 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:14,519 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:14,520 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:15,534 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:15,534 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:16,548 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:16,549 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:17,558 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:17,559 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:18,573 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:18,573 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:19,586 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:19,586 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:20,601 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:20,601 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:21,614 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:21,614 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:22,628 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:22,629 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:23,643 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:23,643 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:24,658 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:24,658 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:25,676 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:25,676 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:26,693 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:26,693 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:27,710 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:27,710 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:28,726 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:28,727 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:29,745 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:29,745 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:30,761 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:30,761 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:31,782 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:31,782 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:32,796 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:32,797 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:33,815 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:33,816 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:34,830 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:34,830 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:35,847 WARN  [IdentifierType - 94] - No element found with identifier = gbg6
+2013-12-02 16:16:35,848 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:37,859 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:39,860 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:41,861 INFO  [WaitUntil - 64] - Checking condition in wait until ....... returning false
+2013-12-02 16:16:41,861 ERROR [WaitUntil - 87] - wait until Timed out. NOT FOUND Identifier= 'gbg6'
+2013-12-02 16:16:41,866 WARN  [AutomationController - 144] - Report created at location 'test_reports\Execution_Report_D02-12-2013_T16-16-41.html'
