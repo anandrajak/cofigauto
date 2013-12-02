@@ -37,10 +37,10 @@ public class TestCaseContext {
 		}
 
 		/**
-		 * Method getTestSuiteContext.
+		 * Method getTestCaseContext.
 		 * @return TestCaseContext
 		 */
-		public TestCaseContext getTestSuiteContext() {
+		public TestCaseContext getTestCaseContext() {
 			return this.context;
 		}
 	}

@@ -26,9 +26,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_1()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -53,9 +52,7 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_2()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -80,9 +77,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_3()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+		
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -107,9 +103,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_4()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -134,9 +129,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_5()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -161,9 +155,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testBuildReport_6()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestSuite suite = new AutomationTestSuite("");
 
 		String result = fixture.buildReport(suite);
@@ -178,104 +171,7 @@ public class ReportBuilderTest {
 		assertNotNull(result);
 	}
 
-	/**
-	 * Run the ReportBuilder getBuilder() method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 9/11/13 11:16 AM
-	 */
-	@Test
-	public void testGetBuilder_1()
-		throws Exception {
 
-		ReportBuilder result = ReportBuilder.getBuilder();
-
-		// add additional test code here
-		assertNotNull(result);
-		assertEquals("Execution_Report_", result.getFileNamePrefix());
-		assertEquals("Report", result.getFileDir());
-	}
-
-	/**
-	 * Run the String getFileDir() method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 9/11/13 11:16 AM
-	 */
-	@Test
-	public void testGetFileDir_1()
-		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
-
-		String result = fixture.getFileDir();
-
-		// add additional test code here
-		assertEquals("", result);
-	}
-
-	/**
-	 * Run the String getFileNamePrefix() method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 9/11/13 11:16 AM
-	 */
-	@Test
-	public void testGetFileNamePrefix_1()
-		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
-
-		String result = fixture.getFileNamePrefix();
-
-		// add additional test code here
-		assertEquals("", result);
-	}
-
-	/**
-	 * Run the void setFileDir(String) method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 9/11/13 11:16 AM
-	 */
-	@Test
-	public void testSetFileDir_1()
-		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
-		String fileDir = "";
-
-		fixture.setFileDir(fileDir);
-
-		// add additional test code here
-	}
-
-	/**
-	 * Run the void setFileNamePrefix(String) method test.
-	 *
-	 * @throws Exception
-	 *
-	 * @generatedBy CodePro at 9/11/13 11:16 AM
-	 */
-	@Test
-	public void testSetFileNamePrefix_1()
-		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
-		String fileNamePrefix = "";
-
-		fixture.setFileNamePrefix(fileNamePrefix);
-
-		// add additional test code here
-	}
 
 	/**
 	 * Run the void writeTestCaseResult(AutomationTestCaseStep) method test.
@@ -287,9 +183,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_1()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -310,9 +205,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_2()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -333,9 +227,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_3()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -356,9 +249,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_4()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -379,9 +271,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_5()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -402,9 +293,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_6()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -425,9 +315,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_7()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -448,9 +337,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_8()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -471,9 +359,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_9()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);
@@ -494,9 +381,8 @@ public class ReportBuilderTest {
 	@Test(expected=ToolRuntimeException.class)
 	public void testWriteTestCaseResult_10()
 		throws Exception {
-		ReportBuilder fixture = ReportBuilder.getBuilder();
-		fixture.setFileNamePrefix("");
-		fixture.setFileDir("");
+		ReportBuilder fixture = new ReportBuilder();
+
 		AutomationTestCaseStep step = null;
 
 		fixture.writeTestCaseResult(step);

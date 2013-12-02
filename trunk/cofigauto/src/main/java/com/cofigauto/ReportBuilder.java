@@ -29,7 +29,7 @@ public class ReportBuilder {
 	private static final Logger logger = LoggerFactory.getLogger(ReportBuilder.class);
 	
 	public ReportBuilder(){
-		File file = new File("fileDir");
+		File file = new File(fileDir);
 		if(!file.exists()){
 			file.mkdir();
 		}
@@ -38,6 +38,10 @@ public class ReportBuilder {
 	public ReportBuilder(String reportPath){
 		if(StringUtils.isNotBlank(reportPath)){
 			this.fileDir = reportPath;
+		}
+		File file = new File(fileDir);
+		if(!file.exists()){
+			file.mkdir();
 		}
 	}
 	
@@ -48,6 +52,10 @@ public class ReportBuilder {
 		
 		if(StringUtils.isNotBlank(fileNamePrefix)){
 			this.fileNamePrefix=fileNamePrefix;
+		}
+		File file = new File(fileDir);
+		if(!file.exists()){
+			file.mkdir();
 		}
 	}
 	

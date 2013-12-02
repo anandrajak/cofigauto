@@ -54,7 +54,7 @@ public class AutomationController {
 			ValidTestStatus testCaseStatus = ValidTestStatus.NOT_RUN;
 			try {
 				builder = new TestCaseContextBuilder(testCase);
-				context = builder.getTestSuiteContext();
+				context = builder.getTestCaseContext();
 				for (AutomationTestCaseStep step : testCase.getSteps()) {
 					LOG.info("Executing step:- " + step);
 					try {

@@ -1,6 +1,7 @@
 package com.cofigauto;
 
 import org.junit.Test;
+import org.reflections.util.ClasspathHelper;
 
 import com.cofigauto.AutomationController;
 
@@ -12,7 +13,7 @@ public class AutomationControllerFunctionalTest {
 
 	@Test
 	public void testAutomationController() {
-		AutomationController.runTestSuite("\\Users\\vsha28\\workspace\\ps\\src\\test\\resources\\Test_Scenarios.xls");
+		AutomationController.runTestSuite(ClasspathHelper.getContextClassLoader().getResource("Test_Scenarios.xls").getPath());
 	}
 
 }
