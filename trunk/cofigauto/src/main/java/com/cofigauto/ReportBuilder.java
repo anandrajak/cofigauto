@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,21 +22,33 @@ import com.cofigauto.model.AutomationTestSuite;
  *
  */
 public class ReportBuilder {
-	private String fileDir="Report";
+	private String fileDir="test_reports";
 	private String fileNamePrefix = "Execution_Report_";
 	private BufferedWriter output;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReportBuilder.class);
 	
-	private ReportBuilder(){}
+	public ReportBuilder(){
+		File file = new File("fileDir");
+		if(!file.exists()){
+			file.mkdir();
+		}
+	}
 	
-	/**
-	 * Method getBuilder.
-	 * @return ReportBuilder
-	 */
-	public static ReportBuilder getBuilder(){
-		ReportBuilder builder = new ReportBuilder();
-		return builder;
+	public ReportBuilder(String reportPath){
+		if(StringUtils.isNotBlank(reportPath)){
+			this.fileDir = reportPath;
+		}
+	}
+	
+	public ReportBuilder(String reportDirectoryPath, String fileNamePrefix){
+		if(StringUtils.isNotBlank(reportDirectoryPath)){
+			this.fileDir = reportDirectoryPath;
+		}
+		
+		if(StringUtils.isNotBlank(fileNamePrefix)){
+			this.fileNamePrefix=fileNamePrefix;
+		}
 	}
 	
 	/**
@@ -204,33 +217,5 @@ public class ReportBuilder {
 		GetDateTime();
 			output.write("</table> <br/>");
 
-	}
-	/**
-	 * Method getFileDir.
-	 * @return String
-	 */
-	public String getFileDir() {
-		return fileDir;
-	}
-	/**
-	 * Method setFileDir.
-	 * @param fileDir String
-	 */
-	public void setFileDir(String fileDir) {
-		this.fileDir = fileDir;
-	}
-	/**
-	 * Method getFileNamePrefix.
-	 * @return String
-	 */
-	public String getFileNamePrefix() {
-		return fileNamePrefix;
-	}
-	/**
-	 * Method setFileNamePrefix.
-	 * @param fileNamePrefix String
-	 */
-	public void setFileNamePrefix(String fileNamePrefix) {
-		this.fileNamePrefix = fileNamePrefix;
 	}
 }

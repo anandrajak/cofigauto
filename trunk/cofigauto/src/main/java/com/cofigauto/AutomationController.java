@@ -116,8 +116,6 @@ public class AutomationController {
 	 */
 	public static void main(String[] args) {
 		try {
-			final ReportBuilder reportBuilder = ReportBuilder.getBuilder();
-
 			final Options options = new Options();
 
 			// add t option
@@ -136,27 +134,12 @@ public class AutomationController {
 			String reportPrefix = commandLine.getOptionValue("p");
 
 			if (StringUtils.isBlank(fileName)) {
-				fileName = "Test_Scenarios.xls";
+				fileName = "test_cases/Test_Scenarios.xls";
 			}
 
 			AutomationTestSuite suite = AutomationController.runTestSuite(fileName);
 
-			if (StringUtils.isNotBlank(reportPrefix)) {
-				reportBuilder.setFileNamePrefix(reportPrefix);
-			}
-
-			if (StringUtils.isNotBlank(reportDirectory)) {
-				File file = new File(reportDirectory);
-				if(!file.exists()){
-					try{file.mkdirs();
-					LOG.info("Created Director "+ file.getCanonicalPath());
-					}catch(Exception e){
-						LOG.error("Exception Occurred",e);
-					}
-				}
-				
-				reportBuilder.setFileDir(reportDirectory);
-			}// default is "Report"
+			final ReportBuilder reportBuilder = new ReportBuilder(reportDirectory, reportPrefix);
 
 			LOG.warn("Report created at location '" + reportBuilder.buildReport(suite) + "'");
 		} catch (Exception e) {
