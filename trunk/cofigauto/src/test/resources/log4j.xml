@@ -11,9 +11,19 @@
         </layout>
     </appender>
 
+	<appender name="fileAppender"
+           class="com.cofigauto.logger.TimeStampLogger">
+      <param name="Threshold" value="DEBUG" />
+	  <param name="timeformat" value="dd_MMM_yyyy_HH_mm_ss" />
+      <param name="File" value="log/automation_tool.log"/>
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1} - %L] - %m%n" />
+      </layout>
+   </appender>
 
   <root>
     <priority value="INFO"/>
+	<appender-ref ref="fileAppender" />
     <appender-ref ref="CONSOLE" />
   </root>
 </log4j:configuration>
