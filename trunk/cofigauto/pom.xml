@@ -28,7 +28,7 @@
 
 	<build>
 
-	<plugins>
+		<plugins>
 			<!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
 				<version>2.3</version> <executions> <execution> <goals> <goal>start-server</goal> 
 				</goals> </execution> </executions> </plugin -->
@@ -52,6 +52,28 @@
 						<exclude>**/*FunctionalTest.java</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.11</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<configuration>
+							<configLocation>config/maven_checks.xml</configLocation>
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<linkXRef>false</linkXRef>
+						</configuration>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -135,6 +157,9 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
+
+
+
 			</plugins>
 		</pluginManagement>
 	</build>
