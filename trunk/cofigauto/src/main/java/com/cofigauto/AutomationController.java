@@ -1,7 +1,4 @@
-// $codepro.audit.disable unnecessaryImport
 package com.cofigauto;
-
-import java.io.File;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -24,127 +21,139 @@ import com.cofigauto.model.AutomationTestSuite;
  * @author Vinay Sharma
  * @version 1.0
  */
-public class AutomationController {
+public final class AutomationController {
 
-	/**
-	 * 
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(AutomationController.class);
+    /**
+     * slf4j logger instance.
+     */
+    private static final Logger LOG = LoggerFactory
+            .getLogger(AutomationController.class);
 
-	/**
-	 * Method runTestSuite.
-	 * 
-	 * @param excelPath
-	 *            String
-	 * @return AutomationTestSuite
-	 */
-	public static AutomationTestSuite runTestSuite(String excelPath) {
-		AutomationTestSuite suite = null;
-		TestCaseContextBuilder builder = null;
-		TestCaseContext context = null;
+    /**
+     * Private default constructor.
+     */
+    private AutomationController() {
+    }
 
-		try {
-			suite = new AutomationTestSuite(excelPath);
-		} catch (Exception e) {
-			LOG.error("Exception Occurred", e);
-			System.exit(0);
-		}
+    /**
+     * Method runTestSuite.
+     *
+     * @param excelPath
+     *            String
+     * @return AutomationTestSuite
+     */
+    public static AutomationTestSuite runTestSuite(final String excelPath) {
+        AutomationTestSuite suite = null;
+        TestCaseContextBuilder builder = null;
+        TestCaseContext context = null;
 
-		for (AutomationTestCase testCase : suite.getTests()) {
-			ValidTestStatus testCaseStatus = ValidTestStatus.NOT_RUN;
-			try {
-				builder = new TestCaseContextBuilder(testCase);
-				context = builder.getTestCaseContext();
-				for (AutomationTestCaseStep step : testCase.getSteps()) {
-					LOG.info("Executing step:- " + step);
-					try {
-						ActionCommand command = ActionCommandFactory.getActionCommand(step.getAction());
-						TestStatus status = null;
-						if (command != null) {
-							status = command.execute(step, context);
-						} else {
-							status = new TestStatus();
-							step.setStatus(status);
-							step.getStatus().setStatus(ValidTestStatus.FAIL);
-							step.getStatus().setStatusDesc("Command not registered");
-						}
-						LOG.debug(status.toString());
-					} catch (Exception e) {
-						LOG.error(e.getMessage(), e);
-						step.setStatus(new TestStatus());
-						step.getStatus().setStatus(ValidTestStatus.FAIL);
-						step.getStatus().setStatusDesc("Exception Occurred :- " + e.getMessage());
-						LOG.debug(step.getStatus().toString());
-					}
+        try {
+            suite = new AutomationTestSuite(excelPath);
+        } catch (Exception e) {
+            LOG.error("Exception Occurred", e);
+            System.exit(0);
+        }
 
-					if (step.getStatus().getStatus().equals(ValidTestStatus.FAIL)) {
-						if (step.isFailTestCaseIfFails()) {
-							testCaseStatus = ValidTestStatus.FAIL;
-						}
-						if (step.isExitOnFail()) {
-							break;
-						}
-					}
+        for (AutomationTestCase testCase : suite.getTests()) {
+            ValidTestStatus testCaseStatus = ValidTestStatus.NOT_RUN;
+            try {
+                builder = new TestCaseContextBuilder(testCase);
+                context = builder.getTestCaseContext();
+                for (AutomationTestCaseStep step : testCase.getSteps()) {
+                    LOG.info("Executing step:- " + step);
+                    try {
+                        ActionCommand command = ActionCommandFactory
+                                .getActionCommand(step.getAction());
+                        TestStatus status = null;
+                        if (command != null) {
+                            status = command.execute(step, context);
+                        } else {
+                            status = new TestStatus();
+                            step.setStatus(status);
+                            step.getStatus().setStatus(ValidTestStatus.FAIL);
+                            step.getStatus().setStatusDesc(
+                                    "Command not registered");
+                        }
+                        LOG.debug(status.toString());
+                    } catch (Exception e) {
+                        LOG.error(e.getMessage(), e);
+                        step.setStatus(new TestStatus());
+                        step.getStatus().setStatus(ValidTestStatus.FAIL);
+                        step.getStatus().setStatusDesc(
+                                "Exception Occurred :- " + e.getMessage());
+                        LOG.debug(step.getStatus().toString());
+                    }
 
-					context.processWindowData();
-				}
-			} catch (Exception e) {
-				LOG.error("Exception Occurred in running TestCase", e);
-				testCaseStatus = ValidTestStatus.FAIL;
-			} finally {
-				if (null != context  && null != context.getDriver() && testCase.isCloseBrowserOnExit()) {
-					context.getDriver().quit();
-				}
-			}
+                    if (step.getStatus().getStatus()
+                            .equals(ValidTestStatus.FAIL)) {
+                        if (step.isFailTestCaseIfFails()) {
+                            testCaseStatus = ValidTestStatus.FAIL;
+                        }
+                        if (step.isExitOnFail()) {
+                            break;
+                        }
+                    }
 
-			if (testCaseStatus != ValidTestStatus.FAIL) {
-				testCaseStatus = ValidTestStatus.PASS;
-			}
+                    context.processWindowData();
+                }
+            } catch (Exception e) {
+                LOG.error("Exception Occurred in running TestCase", e);
+                testCaseStatus = ValidTestStatus.FAIL;
+            } finally {
+                if (null != context && null != context.getDriver()
+                        && testCase.isCloseBrowserOnExit()) {
+                    context.getDriver().quit();
+                }
+            }
 
-			testCase.setStatus(testCaseStatus);
-		}
+            if (testCaseStatus != ValidTestStatus.FAIL) {
+                testCaseStatus = ValidTestStatus.PASS;
+            }
 
-		return suite;
+            testCase.setStatus(testCaseStatus);
+        }
 
-	}
+        return suite;
 
-	/**
-	 * Method main.
-	 * 
-	 * @param args
-	 *            String[]
-	 */
-	public static void main(String[] args) {
-		try {
-			final Options options = new Options();
+    }
 
-			// add t option
-			options.addOption("help", false, "Prints this");
-			options.addOption("f", true, "Test suite excel path from root");
-			options.addOption("e", true, "Browser drivers exe path");
-			options.addOption("d", true, "Report directory");
-			options.addOption("p", true, "Report name prefix");
+    /**
+     * Method main.
+     * 
+     * @param args
+     *            String[]
+     */
+    public static void main(final String[] args) {
+        try {
+            final Options options = new Options();
 
-			CommandLineParser parser = new BasicParser();
+            options.addOption("help", false, "Prints this");
+            options.addOption("f", true, "Test suite excel path from root");
+            options.addOption("d", true, "Report directory");
+            options.addOption("p", true, "Report name prefix");
 
-			CommandLine commandLine = parser.parse(options, args);
-			String fileName = commandLine.getOptionValue("f");
-			// String exeDriverPath = commandLine.getOptionValue("e");
-			String reportDirectory = commandLine.getOptionValue("d");
-			String reportPrefix = commandLine.getOptionValue("p");
+            CommandLineParser parser = new BasicParser();
 
-			if (StringUtils.isBlank(fileName)) {
-				fileName = "test_cases/Test_Scenarios.xls";
-			}
+            CommandLine commandLine = parser.parse(options, args);
+            String fileName = commandLine.getOptionValue("f");
+            String reportDirectory = commandLine.getOptionValue("d");
+            String reportPrefix = commandLine.getOptionValue("p");
 
-			AutomationTestSuite suite = AutomationController.runTestSuite(fileName);
+            if (StringUtils.isBlank(fileName)) {
+                fileName = "test_cases/Test_Scenarios.xls";
+            }
 
-			final ReportBuilder reportBuilder = new ReportBuilder(reportDirectory, reportPrefix);
+            AutomationTestSuite suite = AutomationController
+                    .runTestSuite(fileName);
 
-			LOG.warn("Report created at location '" + reportBuilder.buildReport(suite) + "'");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
+            final ReportBuilder reportBuilder = new ReportBuilder(
+                    reportDirectory, reportPrefix);
+
+            LOG.warn("Report created at location '"
+                    + reportBuilder.buildReport(suite) + "'");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 }
