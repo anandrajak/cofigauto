@@ -13,7 +13,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "LAUNCH")
@@ -26,7 +26,7 @@ public class Launch implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context
@@ -49,7 +49,9 @@ public class Launch implements ActionCommand {
             } else {
                 LOG.error("Step wrongly configured. Step FAILED.");
                 status.setStatus(ValidTestStatus.FAIL);
-                status.setStatusDesc("Step wrongly configured. Either identifier is blank or identifier type is not URL(type can be left blank)");
+                status.setStatusDesc("Step wrongly configured. "
+                        + "Either identifier is blank or identifier "
+                        + "type is not URL(type can be left blank)");
             }
         } catch (Exception e) {
             LOG.error("Exception Occurred in LAUNCH of step :- " + step, e);

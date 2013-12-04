@@ -23,7 +23,7 @@ public class SwitchToMainWindow implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

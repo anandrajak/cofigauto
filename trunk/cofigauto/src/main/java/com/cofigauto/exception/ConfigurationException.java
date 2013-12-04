@@ -13,7 +13,8 @@ public class ConfigurationException extends Exception {
     private static final long serialVersionUID = 1L;
 
     /**
-     * @param message exception message
+     * @param message
+     *            exception message
      */
     public ConfigurationException(final String message) {
         super(message);
@@ -21,11 +22,12 @@ public class ConfigurationException extends Exception {
     }
 
     /**
-     * @param message
-     * @param cause
+     * @param errorMessage Error Message
+     * @param errorCause Error Cause
      */
-    public ConfigurationException(final String message, final Throwable cause) {
-        super(message, cause);
+    public ConfigurationException(final String errorMessage,
+            final Throwable errorCause) {
+        super(errorMessage, errorCause);
         // TODO Auto-generated constructor stub
     }
 

@@ -25,7 +25,7 @@ public class VerifyText implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

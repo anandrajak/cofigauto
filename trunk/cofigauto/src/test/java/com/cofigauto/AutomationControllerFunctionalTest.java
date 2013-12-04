@@ -3,8 +3,6 @@ package com.cofigauto;
 import org.junit.Test;
 import org.reflections.util.ClasspathHelper;
 
-import com.cofigauto.AutomationController;
-
 /**
  */
 public class AutomationControllerFunctionalTest {

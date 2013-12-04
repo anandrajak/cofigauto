@@ -1,9 +1,11 @@
 package com.cofigauto;
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
-import com.cofigauto.ReportBuilder;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.cofigauto.exception.ToolRuntimeException;
 import com.cofigauto.model.AutomationTestCaseStep;
 import com.cofigauto.model.AutomationTestSuite;

@@ -16,7 +16,7 @@ public class ToolRuntimeException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     /**
-     * @param message
+     * @param message Error Message
      */
     public ToolRuntimeException(final String message) {
         super(message);
@@ -24,8 +24,8 @@ public class ToolRuntimeException extends RuntimeException {
     }
 
     /**
-     * @param message
-     * @param cause
+     * @param message Error Message
+     * @param cause Cause
      */
     public ToolRuntimeException(final String message, final Throwable cause) {
         super(message, cause);

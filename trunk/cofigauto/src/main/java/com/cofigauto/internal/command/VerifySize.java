@@ -26,7 +26,7 @@ public class VerifySize implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

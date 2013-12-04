@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cofigauto.internal.command;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -16,7 +13,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "VERIFY")
@@ -29,7 +26,7 @@ public class Verify implements ActionCommand {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.automation.internal.ActionCommand#execute(com.automation.model.
      * AutomationTestCaseStep, com.automation.TestCaseContext)
      */

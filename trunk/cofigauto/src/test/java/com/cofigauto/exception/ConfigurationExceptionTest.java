@@ -1,10 +1,11 @@
 package com.cofigauto.exception;
 
-import org.junit.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import com.cofigauto.exception.ConfigurationException;
-
-import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The class <code>ConfigurationExceptionTest</code> contains tests for the class <code>{@link ConfigurationException}</code>.

@@ -15,7 +15,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "CLICK")
@@ -28,7 +28,7 @@ public class Click implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

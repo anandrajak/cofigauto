@@ -27,7 +27,7 @@ public class VerifyProperty implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context
@@ -76,7 +76,9 @@ public class VerifyProperty implements ActionCommand {
                 }
             } else {
                 status.setStatus(ValidTestStatus.FAIL);
-                status.setStatusDesc("property name and value not provided in data section. valid format is 'name=value'");
+                status.setStatusDesc("property name and value not "
+                + "provided in data section. valid format is "
+                + "'name=value'");
             }
         } catch (NoSuchElementException exp) {
             LOG.error("Element not found. Identifier= '" + step.getIdentifier()

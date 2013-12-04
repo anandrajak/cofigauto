@@ -5,21 +5,40 @@ import java.util.Calendar;
 
 import org.apache.log4j.FileAppender;
 
+/**
+ * @author Vinay Sharma
+ *
+ */
 public class TimeStampLogger extends FileAppender {
 
-	private String timeformat="dd_MMM_yyyy_HH_mm_ss";
-	
-	@Override
-	public void setFile(String file) {
-		super.setFile(file.replace(".log", "") +" "+(new SimpleDateFormat(timeformat).format(Calendar.getInstance().getTime()))+".log");
-	}
+  /**
+   * 
+   */
+  private String timeformat = "dd_MMM_yyyy_HH_mm_ss";
 
-	public String getTimeformat() {
-		return timeformat;
-	}
+  /* (non-Javadoc)
+   * @see org.apache.log4j.FileAppender#setFile(java.lang.String)
+   */
+  @Override
+  public final void setFile(final String file) {
+    super.setFile(file.replace(".log", "")
+        + " "
+        + (new SimpleDateFormat(timeformat).format(Calendar.getInstance()
+            .getTime())) + ".log");
+  }
 
-	public void setTimeformat(String timeformat) {
-		this.timeformat = timeformat;
-	}
+  /**
+   * @return
+   */
+  public final String getTimeformat() {
+    return timeformat;
+  }
+
+  /**
+   * @param timeformat
+   */
+  public final void setTimeformat(final String timeformat) {
+    this.timeformat = timeformat;
+  }
 
 }

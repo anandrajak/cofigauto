@@ -18,7 +18,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "ENTER_VALUE")
@@ -31,13 +31,13 @@ public class EnterValue implements ActionCommand {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.automation.internal.ActionCommand#execute(com.automation.model.
      * AutomationTestCaseStep, com.automation.TestCaseContext)
      */
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

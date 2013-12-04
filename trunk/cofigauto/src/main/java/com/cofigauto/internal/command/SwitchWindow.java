@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cofigauto.internal.command;
 
 import org.slf4j.Logger;
@@ -15,7 +12,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "SWITCH_WINDOW")
@@ -29,13 +26,13 @@ public class SwitchWindow implements ActionCommand {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.automation.internal.ActionCommand#execute(com.automation.model.
      * AutomationTestCaseStep, com.automation.TestCaseContext)
      */
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context
@@ -62,7 +59,8 @@ public class SwitchWindow implements ActionCommand {
                 if (windowCount > context.getWindowCount()) {
                     LOG.error("Window count is greater than max count");
                     status.setStatus(ValidTestStatus.FAIL);
-                    status.setStatusDesc("Window count is greater than max count");
+                    status.setStatusDesc("Window count is greater than "
+                    + "max count");
                 } else {
                     String windowHandle = context
                             .getWindowHandleByNumber(windowCount);

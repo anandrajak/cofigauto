@@ -19,7 +19,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "VERIFY_CSS_PROPERTY")
@@ -33,7 +33,7 @@ public class VerifyCssProperty implements ActionCommand {
 
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context
@@ -82,7 +82,8 @@ public class VerifyCssProperty implements ActionCommand {
                 }
             } else {
                 status.setStatus(ValidTestStatus.FAIL);
-                status.setStatusDesc("property name and value not provided in data section. valid format is 'name=value'");
+                status.setStatusDesc("property name and value not provided "
+                + "in data section. valid format is 'name=value'");
             }
         } catch (NoSuchElementException exp) {
             LOG.error("Element not found. Identifier= '" + step.getIdentifier()

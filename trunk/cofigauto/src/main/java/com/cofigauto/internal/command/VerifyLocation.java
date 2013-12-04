@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cofigauto.internal.command;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -19,7 +16,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "VERIFY_LOCATION")
@@ -33,13 +30,13 @@ public class VerifyLocation implements ActionCommand {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.automation.internal.ActionCommand#execute(com.automation.model.
      * AutomationTestCaseStep, com.automation.TestCaseContext)
      */
     /**
      * Method execute.
-     * 
+     *
      * @param step
      *            AutomationTestCaseStep
      * @param context

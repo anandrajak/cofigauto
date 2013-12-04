@@ -1,10 +1,12 @@
 package com.cofigauto;
 
-import org.junit.*;
-import static org.junit.Assert.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import com.cofigauto.TestCaseContext;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
  * The class <code>TestCaseContextTest</code> contains tests for the class <code>{@link TestCaseContext}</code>.

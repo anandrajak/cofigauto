@@ -1,10 +1,11 @@
 package com.cofigauto.exception;
 
-import org.junit.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import com.cofigauto.exception.ToolRuntimeException;
-
-import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The class <code>ToolRuntimeExceptionTest</code> contains tests for the class <code>{@link ToolRuntimeException}</code>.

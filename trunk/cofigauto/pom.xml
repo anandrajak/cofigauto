@@ -26,6 +26,23 @@
 		</repository>
 	</repositories>
 
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.11</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	<build>
 
 		<plugins>
@@ -63,14 +80,18 @@
 						<id>validate</id>
 						<phase>validate</phase>
 						<configuration>
-							<configLocation>config/maven_checks.xml</configLocation>
+							<configLocation>config/sun_checks.xml</configLocation>
 							<encoding>UTF-8</encoding>
 							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-							<linkXRef>false</linkXRef>
+							<failsOnError>false</failsOnError>
+							<failOnViolation>false</failOnViolation>
+							<linkXRef>true</linkXRef>
+							<includeTestResources>false</includeTestResources>
 						</configuration>
 						<goals>
 							<goal>check</goal>
+							<goal>checkstyle-aggregate</goal>
+							<goal>checkstyle</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -153,13 +174,28 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
+
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-checkstyle-plugin</artifactId>
+										<versionRange>
+											[2.11,)
+										</versionRange>
+										<goals>
+											<goal>
+												check
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
-
-
-
 			</plugins>
 		</pluginManagement>
 	</build>

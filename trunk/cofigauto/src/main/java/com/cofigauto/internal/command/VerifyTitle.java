@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cofigauto.internal.command;
 
 import org.apache.commons.lang.StringUtils;
@@ -16,7 +13,7 @@ import com.cofigauto.model.AutomationTestCaseStep;
 
 /**
  * @author Vinay Sharma
- * 
+ *
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "VERIFY_TITLE")
@@ -30,7 +27,7 @@ public class VerifyTitle implements ActionCommand {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.automation.internal.ActionCommand#execute(com.automation.model.
      * AutomationTestCaseStep, com.automation.TestCaseContext)
      */
@@ -55,18 +52,18 @@ public class VerifyTitle implements ActionCommand {
             String title = context.getDriver().getTitle();
 
             if (StringUtils.isBlank(step.getData())) {
-                LOG.error("Cannot verify title as nothing entered for comparison on data column of sheet.");
+                LOG.error("Cannot verify title as nothing entered for "
+                        + "comparison on data column of sheet.");
                 status.setStatus(ValidTestStatus.FAIL);
-                status.setStatusDesc("Cannot verify title as nothing entered for comparison on data column of sheet.");
+                status.setStatusDesc("Cannot verify title as nothing entered "
+                        + "for comparison on data column of sheet.");
             } else if (!step.getData().equals(title)) {
                 LOG.warn("Title comparison failed. found '" + title
                         + "' expected was '" + step.getData() + "'");
                 status.setStatus(ValidTestStatus.FAIL);
                 status.setStatusDesc("Title comparison failed. found '" + title
                         + "' expected was '" + step.getData() + "'");
-            }
-
-            else if (step.getData().equals(title)) {
+            } else if (step.getData().equals(title)) {
                 status.setStatus(ValidTestStatus.PASS);
                 status.setStatusDesc("Title comparison SUCCESSFULL");
             }
