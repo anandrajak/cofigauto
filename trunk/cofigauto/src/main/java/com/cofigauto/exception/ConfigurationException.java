@@ -7,9 +7,10 @@ package com.cofigauto.exception;
  */
 public class ConfigurationException extends Exception {
 
+
     /**
-	 * 
-	 */
+     * 
+     */
     private static final long serialVersionUID = 1L;
 
     /**
@@ -22,8 +23,10 @@ public class ConfigurationException extends Exception {
     }
 
     /**
-     * @param errorMessage Error Message
-     * @param errorCause Error Cause
+     * @param errorMessage
+     *            Error Message
+     * @param errorCause
+     *            Error Cause
      */
     public ConfigurationException(final String errorMessage,
             final Throwable errorCause) {

@@ -29,7 +29,8 @@ public class WaitUntil implements ActionCommand {
     private static final Logger LOG = LoggerFactory.getLogger(WaitUntil.class);
 
     /**
-	 */
+     * @author vsha28
+     */
     final class TestCasePredicate implements Predicate<WebDriver> {
         /**
          * test case step.
@@ -39,7 +40,8 @@ public class WaitUntil implements ActionCommand {
         /**
          * Constructor for TestCasePredicate.
          * 
-         * @param automationTestCaseStep AutomationTestCaseStep
+         * @param automationTestCaseStep
+         *            AutomationTestCaseStep
          */
         TestCasePredicate(final AutomationTestCaseStep automationTestCaseStep) {
             this.testCaseStep = automationTestCaseStep;

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cofigauto.exception;
 
 /**
@@ -11,12 +8,13 @@ package com.cofigauto.exception;
 public class ToolRuntimeException extends RuntimeException {
 
     /**
-	 * 
-	 */
+     * 
+     */
     private static final long serialVersionUID = 1L;
 
     /**
-     * @param message Error Message
+     * @param message
+     *            Error Message
      */
     public ToolRuntimeException(final String message) {
         super(message);
@@ -24,8 +22,10 @@ public class ToolRuntimeException extends RuntimeException {
     }
 
     /**
-     * @param message Error Message
-     * @param cause Cause
+     * @param message
+     *            Error Message
+     * @param cause
+     *            Cause
      */
     public ToolRuntimeException(final String message, final Throwable cause) {
         super(message, cause);

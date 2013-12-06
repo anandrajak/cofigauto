@@ -76,16 +76,16 @@ public class ReportBuilder {
    * Constructor.
    * 
    * @param reportDirectoryPath
-   * @param fileNamePrefix
+   * @param reportFileNamePrefix
    */
   public ReportBuilder(final String reportDirectoryPath,
-      final String fileNamePrefix) {
+      final String reportFileNamePrefix) {
     if (StringUtils.isNotBlank(reportDirectoryPath)) {
       this.fileDir = reportDirectoryPath;
     }
 
-    if (StringUtils.isNotBlank(fileNamePrefix)) {
-      this.fileNamePrefix = fileNamePrefix;
+    if (StringUtils.isNotBlank(reportFileNamePrefix)) {
+      this.fileNamePrefix = reportFileNamePrefix;
     }
     File file = new File(fileDir);
     if (!file.exists()) {
@@ -235,29 +235,29 @@ public class ReportBuilder {
       throws IOException {
     getDateTime();
 
-    output.write("<font face=arial size=3><b>Test Scenario Name	::	"
+    output.write("<font face=arial size=3><b>Test Scenario Name :: "
         + "</b>  </font> <font face=arial size=2>" + testCase.getFeatureName()
         + "</font></br>");
-    output.write("<font face=arial size=3><b>Browser ::	</b>  "
+    output.write("<font face=arial size=3><b>Browser :: </b>  "
         + "</font> <font face=arial size=2>" + testCase.getBrowserName()
         + "</font></br>");
 
     if (testCase.getStatus().equals(ValidTestStatus.PASS)) {
-      output.write("<font face=arial size=3><b>Result ::	</b> "
+      output.write("<font face=arial size=3><b>Result :: </b> "
           + " </font> <font face=arial size=2>PASS</font></br>");
     } else if (testCase.getStatus().equals(ValidTestStatus.FAIL)) {
-      output.write("<font face=arial size=3><b>Result ::	</b>  "
+      output.write("<font face=arial size=3><b>Result :: </b>  "
           + "</font> <font face=arial size=2 color=RED>FAIL</font></br>");
     } else if (testCase.getStatus().equals(ValidTestStatus.NOT_RUN)) {
-      output.write("<font face=arial size=3><b>Result ::	</b>  "
+      output.write("<font face=arial size=3><b>Result :: </b>  "
           + "</font> <font face=arial size=2>NOT_RUN</font></br>");
     }
 
-    output.write("<font face=arial size=3><b>Execution Start Time	"
-        + "::	</b>  </font> <font face=arial size=2><b>" + getDateTime()
+    output.write("<font face=arial size=3><b>Execution Start Time "
+        + ":: </b>  </font> <font face=arial size=2><b>" + getDateTime()
         + "</b> </font></br></br>");
-    output.write("<font face=arial size=3><b>Scenario Description	"
-        + "::	</b>  </font> <b> <font face=arial size=2>"
+    output.write("<font face=arial size=3><b>Scenario Description "
+        + ":: </b> </font> <b> <font face=arial size=2>"
         + testCase.getDescription() + "</b> </font></br>");
     output.write("<table cellpadding=0 cellspacing=0 width=1000 "
         + "border=2 bordercolor=BLACK>");

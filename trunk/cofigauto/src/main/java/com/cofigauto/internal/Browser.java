@@ -15,122 +15,133 @@ import com.cofigauto.exception.ConfigurationException;
 
 /**
  */
-public class Browser {
-
-  /**
-   * Method getDriverByName.
-   * 
-   * @param name
-   *          String
-   * @return RemoteWebDriver
-   * @throws ConfigurationException
-   */
-  public static RemoteWebDriver getDriverByName(final String name)
-      throws ConfigurationException {
-    try {
-      RemoteWebDriver driver;
-      ValidBrowser browser = ValidBrowser.getByName(name);
-
-      if (browser != null) {
-        driver = browser.getDriverClass().newInstance();
-      } else {
-        throw new ConfigurationException("Invalid browser name '" + name + "'");
-      }
-
-      return driver;
-    } catch (Exception e) {
-      throw new ConfigurationException("Exception in getting driver instance",
-          e);
-    }
-  }
-
-  /**
-   * Method getDriverByName.
-   * 
-   * @param name
-   *          String
-   * @param desiredCapabilities
-   *          Capabilities
-   * @return RemoteWebDriver
-   * @throws ConfigurationException
-   */
-  public static RemoteWebDriver getDriverByName(final String name,
-      final Capabilities desiredCapabilities) throws ConfigurationException {
-    try {
-      ValidBrowser browser = ValidBrowser.getByName(name);
-      RemoteWebDriver driver;
-      if (browser != null && desiredCapabilities != null) {
-        driver = browser.getDriverClass().getConstructor(Capabilities.class)
-            .newInstance(new Object[] { desiredCapabilities });
-      } else if (browser != null) {
-        driver = browser.getDriverClass().newInstance();
-      } else {
-        throw new ConfigurationException("Invalid browser name '" + name + "'");
-      }
-
-      return driver;
-    } catch (Exception e) {
-      throw new ConfigurationException("Exception ingetting driver instance", e);
-    }
-  }
-
-  /**
-	 */
-  public enum ValidBrowser {
-    IE(InternetExplorerDriver.class), Firefox(FirefoxDriver.class), Chrome(
-        ChromeDriver.class), Safari(SafariDriver.class);
-
-    private static Map<String, ValidBrowser> browserName = new HashMap<String, ValidBrowser>();
-    private final Class<? extends RemoteWebDriver> driverClass;
-
-    static {
-      for (ValidBrowser browser : ValidBrowser.values()) {
-        browserName.put(browser.name().toUpperCase(), browser);
-      }
-    }
+public final class Browser {
 
     /**
-     * Constructor for ValidBrowser.
-     * 
-     * @param driverClass
-     *          Class<? extends RemoteWebDriver>
+     * private default constructor
      */
-    ValidBrowser(final Class<? extends RemoteWebDriver> driverClass) {
-      this.driverClass = driverClass;
+    private Browser() {
+       // throw new ToolRuntimeException("Cannot instantiate this class");
     }
 
     /**
-     * Method getByName.
+     * Method getDriverByName.
      * 
      * @param name
-     *          String
-     * @return ValidBrowser
+     *            String
+     * @return RemoteWebDriver
      * @throws ConfigurationException
      */
-    public static ValidBrowser getByName(final String name)
-        throws ConfigurationException {
+    public static RemoteWebDriver getDriverByName(final String name)
+            throws ConfigurationException {
+        try {
+            RemoteWebDriver driver;
+            ValidBrowser browser = ValidBrowser.getByName(name);
 
-      if (StringUtils.isBlank(name)) {
-        throw new ConfigurationException("Browser name is blank");
-      }
+            if (browser != null) {
+                driver = browser.getDriverClass().newInstance();
+            } else {
+                throw new ConfigurationException("Invalid browser name '"
+                        + name + "'");
+            }
 
-      ValidBrowser browser = browserName.get(name.trim().toUpperCase());
-
-      if (browser != null) {
-        return browser;
-      } else {
-        throw new ConfigurationException("Invalid browser name '" + name + "'");
-      }
+            return driver;
+        } catch (Exception e) {
+            throw new ConfigurationException(
+                    "Exception in getting driver instance", e);
+        }
     }
 
     /**
-     * Method getDriverClass.
+     * Method getDriverByName.
      * 
-     * @return Class<? extends RemoteWebDriver>
+     * @param name
+     *            String
+     * @param desiredCapabilities
+     *            Capabilities
+     * @return RemoteWebDriver
+     * @throws ConfigurationException
      */
-    public Class<? extends RemoteWebDriver> getDriverClass() {
-      return driverClass;
+    public static RemoteWebDriver getDriverByName(final String name,
+            final Capabilities desiredCapabilities)
+            throws ConfigurationException {
+        try {
+            ValidBrowser browser = ValidBrowser.getByName(name);
+            RemoteWebDriver driver;
+            if (browser != null && desiredCapabilities != null) {
+                driver = browser.getDriverClass()
+                        .getConstructor(Capabilities.class)
+                        .newInstance(new Object[] { desiredCapabilities });
+            } else if (browser != null) {
+                driver = browser.getDriverClass().newInstance();
+            } else {
+                throw new ConfigurationException("Invalid browser name '"
+                        + name + "'");
+            }
+
+            return driver;
+        } catch (Exception e) {
+            throw new ConfigurationException(
+                    "Exception ingetting driver instance", e);
+        }
     }
-  }
+
+    public enum ValidBrowser {
+        IE(InternetExplorerDriver.class), Firefox(FirefoxDriver.class), Chrome(
+                ChromeDriver.class), Safari(SafariDriver.class);
+
+        private static Map<String, ValidBrowser> browserName = new HashMap<String, ValidBrowser>();
+        private final Class<? extends RemoteWebDriver> driverClass;
+
+        static {
+            for (ValidBrowser browser : ValidBrowser.values()) {
+                browserName.put(browser.name().toUpperCase(), browser);
+            }
+        }
+
+        /**
+         * Constructor for ValidBrowser.
+         * 
+         * @param browserDriverClass
+         *            Class<? extends RemoteWebDriver>
+         */
+        ValidBrowser(final Class<? extends RemoteWebDriver> browserDriverClass) {
+            this.driverClass = browserDriverClass;
+        }
+
+        /**
+         * Method getByName.
+         * 
+         * @param name
+         *            String
+         * @return ValidBrowser
+         * @throws ConfigurationException
+         */
+        public static ValidBrowser getByName(final String name)
+                throws ConfigurationException {
+
+            if (StringUtils.isBlank(name)) {
+                throw new ConfigurationException("Browser name is blank");
+            }
+
+            ValidBrowser browser = browserName.get(name.trim().toUpperCase());
+
+            if (browser != null) {
+                return browser;
+            } else {
+                throw new ConfigurationException("Invalid browser name '"
+                        + name + "'");
+            }
+        }
+
+        /**
+         * Method getDriverClass.
+         * 
+         * @return Class<? extends RemoteWebDriver>
+         */
+        public Class<? extends RemoteWebDriver> getDriverClass() {
+            return driverClass;
+        }
+    }
 
 }

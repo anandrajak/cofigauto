@@ -80,10 +80,10 @@
 						<id>validate</id>
 						<phase>validate</phase>
 						<configuration>
-							<configLocation>config/sun_checks.xml</configLocation>
+							<configLocation>checkstyle-checker.xml</configLocation>
 							<encoding>UTF-8</encoding>
 							<consoleOutput>true</consoleOutput>
-							<failsOnError>false</failsOnError>
+							<failsOnError>true</failsOnError>
 							<failOnViolation>false</failOnViolation>
 							<linkXRef>true</linkXRef>
 							<includeTestResources>false</includeTestResources>

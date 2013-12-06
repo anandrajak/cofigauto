@@ -197,11 +197,11 @@ public class AutomationTestCase {
   /**
    * Method setStatus.
    * 
-   * @param status
+   * @param testCaseStatus
    *          ValidTestStatus
    */
-  public final void setStatus(final ValidTestStatus status) {
-    this.status = status;
+  public final void setStatus(final ValidTestStatus testCaseStatus) {
+    this.status = testCaseStatus;
   }
 
   /**

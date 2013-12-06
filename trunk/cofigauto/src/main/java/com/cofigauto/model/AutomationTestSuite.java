@@ -18,7 +18,7 @@ import com.cofigauto.exception.ToolRuntimeException;
 /**
  */
 public class AutomationTestSuite {
-  List<AutomationTestCase> tests = new ArrayList<AutomationTestCase>();
+  private final List<AutomationTestCase> tests = new ArrayList<AutomationTestCase>();
 
   private static final Logger LOG = LoggerFactory
       .getLogger(AutomationTestSuite.class);
@@ -30,7 +30,7 @@ public class AutomationTestSuite {
    *          String
    * @throws IOException
    */
-  public AutomationTestSuite(String excelFile) throws IOException {
+  public AutomationTestSuite(final String excelFile) throws IOException {
 
     File file = new File(excelFile);
     if (!file.exists()) {
@@ -85,7 +85,7 @@ public class AutomationTestSuite {
    * 
    * @return List<AutomationTestCase>
    */
-  public List<AutomationTestCase> getTests() {
+  public final List<AutomationTestCase> getTests() {
     return tests;
   }
 

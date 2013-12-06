@@ -35,10 +35,10 @@ public class TimeStampLogger extends FileAppender {
   }
 
   /**
-   * @param timeformat
+   * @param reportingTimeformat
    */
-  public final void setTimeformat(final String timeformat) {
-    this.timeformat = timeformat;
+  public final void setTimeformat(final String reportingTimeformat) {
+    this.timeformat = reportingTimeformat;
   }
 
 }

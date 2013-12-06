@@ -18,17 +18,6 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
  * @version $Revision: 1.0 $
  */
 public class IdentifierTypeTest {
-    /**
-     * Run the IdentifierType() constructor test.
-     * 
-     * @generatedBy CodePro at 9/11/13 11:15 AM
-     */
-    @Test
-    public void testIdentifierType_1() throws Exception {
-        IdentifierType result = new IdentifierType();
-        assertNotNull(result);
-        // add additional test code here
-    }
 
     /**
      * Run the WebElement
