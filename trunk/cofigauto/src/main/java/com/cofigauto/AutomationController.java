@@ -8,7 +8,6 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.cofigauto.TestCaseContext.TestCaseContextBuilder;
 import com.cofigauto.internal.ActionCommand;
 import com.cofigauto.internal.ActionCommandFactory;
 import com.cofigauto.internal.TestStatus;
@@ -44,7 +43,7 @@ public final class AutomationController {
    */
   public static AutomationTestSuite runTestSuite(final String excelPath) {
     AutomationTestSuite suite = null;
-    TestCaseContextBuilder builder = null;
+    TestCaseContext.TestCaseContextBuilder builder = null;
     TestCaseContext context = null;
 
     try {
@@ -57,7 +56,7 @@ public final class AutomationController {
     for (AutomationTestCase testCase : suite.getTests()) {
       ValidTestStatus testCaseStatus = ValidTestStatus.NOT_RUN;
       try {
-        builder = new TestCaseContextBuilder(testCase);
+        builder = new TestCaseContext.TestCaseContextBuilder(testCase);
         context = builder.getTestCaseContext();
         for (AutomationTestCaseStep step : testCase.getSteps()) {
           LOG.info("Executing step:- " + step);
