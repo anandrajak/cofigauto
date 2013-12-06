@@ -1,12 +1,11 @@
 package com.cofigauto.exception;
 
 /**
- * @author vsha28
+ * @author vinay sharma
  * 
  * @version $Revision: 1.0 $
  */
 public class ConfigurationException extends Exception {
-
 
     /**
      * 

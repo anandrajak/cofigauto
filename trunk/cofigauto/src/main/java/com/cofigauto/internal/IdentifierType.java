@@ -62,10 +62,10 @@ public final class IdentifierType {
             if (identType.equals(ValidIdentifierType.JavaScript)) {
                 Object obj = ((JavascriptExecutor) driver)
                         .executeScript(identifier);
-                if (obj != null && (obj instanceof ArrayList)
+                if (obj != null && obj instanceof ArrayList
                         && ((List<WebElement>) obj).size() > 0) {
                     webElement = ((List<WebElement>) obj).get(0);
-                } else if (obj != null && (obj instanceof WebElement)) {
+                } else if (obj != null && obj instanceof WebElement) {
                     webElement = (WebElement) obj;
                 } else if (obj != null) {
                     LOG.error("Cannot process = " + obj);

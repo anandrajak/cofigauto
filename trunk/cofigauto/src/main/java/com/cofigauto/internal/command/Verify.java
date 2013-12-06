@@ -47,7 +47,7 @@ public class Verify implements ActionCommand {
         TestStatus status = new TestStatus();
 
         try {
-            Object obj = (context.getDriver()).executeScript(step.getData());
+            Object obj = context.getDriver().executeScript(step.getData());
             if (obj != null) {
                 if (obj.toString().equals("true")) {
                     status.setStatus(ValidTestStatus.PASS);

@@ -21,7 +21,7 @@ public final class Browser {
      * private default constructor
      */
     private Browser() {
-       // throw new ToolRuntimeException("Cannot instantiate this class");
+        // throw new ToolRuntimeException("Cannot instantiate this class");
     }
 
     /**
@@ -30,26 +30,30 @@ public final class Browser {
      * @param name
      *            String
      * @return RemoteWebDriver
-     * @throws ConfigurationException
+     * @throws ConfigurationException congfig exception
      */
     public static RemoteWebDriver getDriverByName(final String name)
             throws ConfigurationException {
+        RemoteWebDriver driver = null;
         try {
-            RemoteWebDriver driver;
+
             ValidBrowser browser = ValidBrowser.getByName(name);
 
             if (browser != null) {
                 driver = browser.getDriverClass().newInstance();
-            } else {
-                throw new ConfigurationException("Invalid browser name '"
-                        + name + "'");
             }
 
-            return driver;
         } catch (Exception e) {
             throw new ConfigurationException(
                     "Exception in getting driver instance", e);
         }
+
+        if (driver == null) {
+            throw new ConfigurationException("Invalid browser name '" + name
+                    + "'");
+        }
+
+        return driver;
     }
 
     /**

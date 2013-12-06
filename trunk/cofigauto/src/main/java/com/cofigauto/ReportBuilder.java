@@ -110,7 +110,7 @@ public class ReportBuilder {
         for (AutomationTestCaseStep step : testCase.getSteps()) {
           this.writeTestCaseResult(step);
         }
-        createTableFooter(testCase);
+        createTableFooter();
       }
       closeReport();
     } catch (Exception e) {
@@ -284,7 +284,7 @@ public class ReportBuilder {
    * @throws IOException
    *           error in writing output
    */
-  private void createTableFooter(final AutomationTestCase testCase)
+  private void createTableFooter()
       throws IOException {
     getDateTime();
     output.write("</table> <br/>");

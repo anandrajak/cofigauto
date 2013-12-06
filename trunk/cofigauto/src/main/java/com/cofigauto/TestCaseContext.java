@@ -136,9 +136,9 @@ public class TestCaseContext {
 
         for (String handle : driver.getWindowHandles()) {
             Integer windowNumber = this.windowHandleToNumberMap.get(handle);
-            boolean isNew = (((windowNumber != null) && (windowNumber != 0))
+            boolean isNew = (windowNumber != null) && (windowNumber != 0)
                     ? false
-                    : true);
+                    : true;
             if (isNew) {
                 LOG.info("found new window with handle " + handle);
                 LOG.info("New window number = " + this.getWindowCount());
