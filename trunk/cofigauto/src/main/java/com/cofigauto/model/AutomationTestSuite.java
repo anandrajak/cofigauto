@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -16,20 +21,17 @@ import org.slf4j.LoggerFactory;
 import com.cofigauto.exception.ToolRuntimeException;
 
 /**
- */
-/**
- * @author vsha28
- *
- */
-/**
- * @author vsha28
+ * @author vinay sharma
  * 
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class AutomationTestSuite {
 
     /**
      * List of test cases
      */
+    @XmlElement(name = "tests", required=false)
     private final List<AutomationTestCase> tests = new ArrayList<AutomationTestCase>();
 
     /**
@@ -43,6 +45,14 @@ public class AutomationTestSuite {
     private static final Logger LOG = LoggerFactory
             .getLogger(AutomationTestSuite.class);
 
+    
+    /**
+     * Default Constructor
+     */
+    public AutomationTestSuite(){
+        
+    }
+    
     /**
      * Constructor for AutomationTestSuite.
      * 

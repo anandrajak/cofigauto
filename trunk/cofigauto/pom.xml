@@ -16,6 +16,8 @@
 		<apache.commons.version>2.6</apache.commons.version>
 		<selenium.version>2.33.0</selenium.version>
 		<surefire.version>2.16</surefire.version>
+		<apache.poi.version>3.7</apache.poi.version>
+		<jmockit.version>1.5</jmockit.version>
 	</properties>
 
 	<repositories>
@@ -167,7 +169,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.cofigauto.AutomationController</mainClass>
+							<mainClass>com.cofigauto.ExcelTestSuitRunner</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -267,12 +269,6 @@
 		</pluginManagement>
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.seleniumhq.selenium.client-drivers</groupId>
@@ -303,15 +299,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.7</version>
+			<version>${apache.poi.version}</version>
 		</dependency>
 
 		<dependency>
@@ -319,16 +309,34 @@
 			<artifactId>commons-cli</artifactId>
 			<version>1.2</version>
 		</dependency>
+
 		<dependency>
+			<!-- Required for searching command classes in the classpath -->
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
 			<version>0.9.6</version>
 		</dependency>
 		<dependency>
+			<!-- Required by reflections -->
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
 			<version>1.4.01</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>${jmockit.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 </project>

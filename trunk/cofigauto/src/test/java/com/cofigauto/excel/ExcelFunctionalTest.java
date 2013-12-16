@@ -29,7 +29,7 @@ public class ExcelFunctionalTest {
 	public void setup() {
 		try {
 			testCaseExcel = new HSSFWorkbook(ExcelFunctionalTest.class.getClassLoader().getResourceAsStream(
-					"Test_Scenario.xls"));
+					"Test_Scenarios.xls"));
 			
 			processMainSheet();
 			processTestCaseDetails();

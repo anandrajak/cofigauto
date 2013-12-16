@@ -1,207 +1,293 @@
 package com.cofigauto.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 
 import com.cofigauto.exception.ToolRuntimeException;
-import com.cofigauto.internal.TestStatus;
 
 /**
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AutomationTestCaseStep {
 
-  /**
+    /**
    * 
    */
-  private String action;
-  /**
+    @XmlAttribute(name = "action", required = true)
+    private String action;
+    /**
    * 
    */
-  private String windowName;
-  /**
+    @XmlAttribute(name = "windowName", required = false)
+    private String windowName;
+    /**
    * 
    */
-  private String reportingName;
-  /**
+    @XmlAttribute(name = "reportingName", required = true)
+    private String reportingName;
+    /**
    * 
    */
-  private String identifier;
-  /**
+    @XmlAttribute(name = "identifier", required = true)
+    private String identifier;
+    /**
    * 
    */
-  private String identifierType;
-  /**
+    @XmlAttribute(name = "identifierType", required = true)
+    private String identifierType;
+    /**
    * 
    */
-  private String data;
-  /**
+    @XmlAttribute(name = "data", required = false)
+    private String data;
+    /**
    * 
    */
-  private boolean exitOnFail = false;
-  /**
+    @XmlAttribute(name = "exitOnFail", required = false)
+    private boolean exitOnFail = false;
+    /**
    * 
    */
-  private boolean failTestCaseIfFails = false;
-  /**
+    @XmlAttribute(name = "failTestCaseIfFails", required = false)
+    private boolean failTestCaseIfFails = false;
+    /**
    * 
    */
-  private TestStatus status;
+    @XmlTransient
+    private TestStatus status;
 
-  /**
-   * Constructor for AutomationTestCaseStep.
-   * 
-   * @param row
-   *          HSSFRow
-   */
-  AutomationTestCaseStep(final HSSFRow row) {
-    if (row == null || row.getCell(0) == null) {
-      throw new ToolRuntimeException("row is null");
+    /**
+     * Default Constructor
+     */
+    AutomationTestCaseStep() {
+    }
+    /**
+     * Constructor for AutomationTestCaseStep.
+     * 
+     * @param row
+     *            HSSFRow
+     */
+    AutomationTestCaseStep(final HSSFRow row) {
+        if (row == null || row.getCell(0) == null) {
+            throw new ToolRuntimeException("row is null");
+        }
+
+        this.action = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.ACTION));
+        this.windowName = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.WINDOW_NAME));
+        this.reportingName = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.STEP_REPORTING_NAME));
+        this.identifier = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.IDENIFIER));
+        this.identifierType = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.IDENT_TYPE));
+        this.data = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.DATA));
+
+        String tempStr = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.EXIT_IF_FAIL));
+        if (StringUtils.isNotBlank(tempStr)
+                && tempStr.trim().equalsIgnoreCase("Y")) {
+            this.exitOnFail = true;
+        }
+
+        tempStr = getCellStringValue(row
+                .getCell(ModelConstants.DetailsSheet.FAIL_TEST_IF_FAIL));
+        if (StringUtils.isNotBlank(tempStr)
+                && tempStr.trim().equalsIgnoreCase("N")) {
+            this.failTestCaseIfFails = true;
+        }
     }
 
-    this.action = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.ACTION));
-    this.windowName = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.WINDOW_NAME));
-    this.reportingName = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.STEP_REPORTING_NAME));
-    this.identifier = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.IDENIFIER));
-    this.identifierType = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.IDENT_TYPE));
-    this.data = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.DATA));
-
-    String tempStr = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.EXIT_IF_FAIL));
-    if (StringUtils.isNotBlank(tempStr) && tempStr.trim().equalsIgnoreCase("Y")) {
-      this.exitOnFail = true;
+    /**
+     * Method getCellStringValue.
+     * 
+     * @param tempCell
+     *            HSSFCell
+     * @return String
+     */
+    private String getCellStringValue(final HSSFCell tempCell) {
+        if (tempCell != null) {
+            return tempCell.toString();
+        } else {
+            return "";
+        }
     }
 
-    tempStr = getCellStringValue(row
-        .getCell(ModelConstants.DetailsSheet.FAIL_TEST_IF_FAIL));
-    if (StringUtils.isNotBlank(tempStr) && tempStr.trim().equalsIgnoreCase("N")) {
-      this.failTestCaseIfFails = true;
+    /**
+     * Method getAction.
+     * 
+     * @return String
+     */
+    public final String getAction() {
+        return action;
     }
-  }
 
-  /**
-   * Method getCellStringValue.
-   * 
-   * @param tempCell
-   *          HSSFCell
-   * @return String
-   */
-  private String getCellStringValue(final HSSFCell tempCell) {
-    if (tempCell != null) {
-      return tempCell.toString();
-    } else {
-      return "";
+    /**
+     * Method getWindowName.
+     * 
+     * @return String
+     */
+    public final String getWindowName() {
+        return windowName;
     }
-  }
 
-  /**
-   * Method getAction.
-   * 
-   * @return String
-   */
-  public final String getAction() {
-    return action;
-  }
+    /**
+     * Method getReportingName.
+     * 
+     * @return String
+     */
+    public final String getReportingName() {
+        return reportingName;
+    }
 
-  /**
-   * Method getWindowName.
-   * 
-   * @return String
-   */
-  public final String getWindowName() {
-    return windowName;
-  }
+    /**
+     * Method getIdentifier.
+     * 
+     * @return String
+     */
+    public final String getIdentifier() {
+        return identifier;
+    }
 
-  /**
-   * Method getReportingName.
-   * 
-   * @return String
-   */
-  public final String getReportingName() {
-    return reportingName;
-  }
+    /**
+     * Method getIdentifierType.
+     * 
+     * @return String
+     */
+    public final String getIdentifierType() {
+        return identifierType;
+    }
 
-  /**
-   * Method getIdentifier.
-   * 
-   * @return String
-   */
-  public final String getIdentifier() {
-    return identifier;
-  }
+    /**
+     * Method getData.
+     * 
+     * @return String
+     */
+    public final String getData() {
+        return data;
+    }
 
-  /**
-   * Method getIdentifierType.
-   * 
-   * @return String
-   */
-  public final String getIdentifierType() {
-    return identifierType;
-  }
+    /**
+     * Method toString.
+     * 
+     * @return String
+     */
+    @Override
+    public final String toString() {
+        return "AutomationTestCaseStep [action=" + action + ", windowName="
+                + windowName + ", reportingName=" + reportingName
+                + ", identifier=" + identifier + ", identifierType="
+                + identifierType + ", data=" + data + "]";
+    }
 
-  /**
-   * Method getData.
-   * 
-   * @return String
-   */
-  public final String getData() {
-    return data;
-  }
+    /**
+     * Method isExitOnFail.
+     * 
+     * @return boolean
+     */
+    public final boolean isExitOnFail() {
+        return exitOnFail;
+    }
 
-  /**
-   * Method toString.
-   * 
-   * @return String
-   */
-  @Override
-  public final String toString() {
-    return "AutomationTestCaseStep [action=" + action + ", windowName="
-        + windowName + ", reportingName=" + reportingName + ", identifier="
-        + identifier + ", identifierType=" + identifierType + ", data=" + data
-        + "]";
-  }
+    /**
+     * Method isFailTestCaseIfFails.
+     * 
+     * @return boolean
+     */
+    public final boolean isFailTestCaseIfFails() {
+        return failTestCaseIfFails;
+    }
 
-  /**
-   * Method isExitOnFail.
-   * 
-   * @return boolean
-   */
-  public final boolean isExitOnFail() {
-    return exitOnFail;
-  }
+    /**
+     * Method getStatus.
+     * 
+     * @return TestStatus
+     */
+    public final TestStatus getStatus() {
+        return status;
+    }
 
-  /**
-   * Method isFailTestCaseIfFails.
-   * 
-   * @return boolean
-   */
-  public final boolean isFailTestCaseIfFails() {
-    return failTestCaseIfFails;
-  }
+    /**
+     * Method setStatus.
+     * 
+     * @param status
+     *            TestStatus
+     */
+    public final void setStatus(final TestStatus testStatus) {
+        this.status = testStatus;
+    }
 
-  /**
-   * Method getStatus.
-   * 
-   * @return TestStatus
-   */
-  public final TestStatus getStatus() {
-    return status;
-  }
+    /**
+     * @param actionOnStep
+     *            the action to set
+     */
+    protected final void setAction(final String actionOnStep) {
+        this.action = actionOnStep;
+    }
 
-  /**
-   * Method setStatus.
-   * 
-   * @param status
-   *          TestStatus
-   */
-  public final void setStatus(final TestStatus testStatus) {
-    this.status = testStatus;
-  }
+    /**
+     * @param windowReportingName
+     *            the windowName to set
+     */
+    protected final void setWindowName(final String windowReportingName) {
+        this.windowName = windowReportingName;
+    }
+
+    /**
+     * @param reportingStepName
+     *            the reportingName to set
+     */
+    protected final void setReportingName(final String reportingStepName) {
+        this.reportingName = reportingStepName;
+    }
+
+    /**
+     * @param identifierValue
+     *            the identifier to set
+     */
+    protected final void setIdentifier(final String identifierValue) {
+        this.identifier = identifierValue;
+    }
+
+    /**
+     * @param stepIdentifierType
+     *            the identifierType to set
+     */
+    protected final void setIdentifierType(final String stepIdentifierType) {
+        this.identifierType = stepIdentifierType;
+    }
+
+    /**
+     * @param stepData
+     *            the data to set
+     */
+    protected final void setData(final String stepData) {
+        this.data = stepData;
+    }
+
+    /**
+     * @param exitOnStepFail
+     *            the exitOnFail to set
+     */
+    protected final void setExitOnFail(final boolean exitOnStepFail) {
+        this.exitOnFail = exitOnStepFail;
+    }
+
+    /**
+     * @param failTestOnStepFailure
+     *            the failTestCaseIfFails to set
+     */
+    protected final void setFailTestCaseIfFails(
+            final boolean failTestOnStepFailure) {
+        this.failTestCaseIfFails = failTestOnStepFailure;
+    }
 
 }

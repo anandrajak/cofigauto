@@ -13,9 +13,9 @@ import com.cofigauto.TestCaseContext;
 import com.cofigauto.internal.ActionCommand;
 import com.cofigauto.internal.AutomationCommand;
 import com.cofigauto.internal.IdentifierType;
-import com.cofigauto.internal.TestStatus;
-import com.cofigauto.internal.ValidTestStatus;
 import com.cofigauto.model.AutomationTestCaseStep;
+import com.cofigauto.model.TestStatus;
+import com.cofigauto.model.ValidTestStatus;
 import com.google.common.base.Predicate;
 
 /**

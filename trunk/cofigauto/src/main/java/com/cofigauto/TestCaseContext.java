@@ -47,6 +47,7 @@ public class TestCaseContext {
     public static class TestCaseContextBuilder {
         private TestCaseContext context = new TestCaseContext();
 
+        public TestCaseContextBuilder(){}
         /**
          * Constructor for TestCaseContextBuilder.
          * 

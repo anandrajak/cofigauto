@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="automationTestSuite" type="automationTestSuite"/>
+
+  <xs:complexType name="automationTestCase">
+    <xs:sequence>
+      <xs:element name="steps" type="automationTestCaseStep" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="status" type="validTestStatus" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="serialNumber" type="xs:string"/>
+    <xs:attribute name="featureName" type="xs:string"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="run" type="xs:boolean" use="required"/>
+    <xs:attribute name="browserName" type="xs:string" use="required"/>
+    <xs:attribute name="closeBrowserOnExit" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="automationTestCaseStep">
+    <xs:sequence>
+      <xs:element name="status" type="testStatus" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="action" type="xs:string" use="required"/>
+    <xs:attribute name="windowName" type="xs:string"/>
+    <xs:attribute name="reportingName" type="xs:string" use="required"/>
+    <xs:attribute name="identifier" type="xs:string" use="required"/>
+    <xs:attribute name="identifierType" type="xs:string" use="required"/>
+    <xs:attribute name="data" type="xs:string"/>
+    <xs:attribute name="exitOnFail" type="xs:boolean" use="required"/>
+    <xs:attribute name="failTestCaseIfFails" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="testStatus">
+    <xs:sequence>
+      <xs:element name="status" type="validTestStatus" minOccurs="0"/>
+      <xs:element name="statusDesc" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modelConstants">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="automationTestSuite">
+    <xs:sequence>
+      <xs:element name="tests" type="automationTestCase" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="validTestStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FAIL"/>
+      <xs:enumeration value="PASS"/>
+      <xs:enumeration value="NOT_RUN"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

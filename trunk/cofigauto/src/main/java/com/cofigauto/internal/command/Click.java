@@ -9,13 +9,13 @@ import com.cofigauto.TestCaseContext;
 import com.cofigauto.internal.ActionCommand;
 import com.cofigauto.internal.AutomationCommand;
 import com.cofigauto.internal.IdentifierType;
-import com.cofigauto.internal.TestStatus;
-import com.cofigauto.internal.ValidTestStatus;
 import com.cofigauto.model.AutomationTestCaseStep;
+import com.cofigauto.model.TestStatus;
+import com.cofigauto.model.ValidTestStatus;
 
 /**
  * @author Vinay Sharma
- *
+ * 
  * @version $Revision: 1.0 $
  */
 @AutomationCommand(name = "CLICK")
@@ -27,8 +27,8 @@ public class Click implements ActionCommand {
     private static final Logger LOG = LoggerFactory.getLogger(Click.class);
 
     /**
-     * Method execute.
-     *
+     * Method execute. Executes step, updates status in it and returns status.
+     * 
      * @param step
      *            AutomationTestCaseStep
      * @param context

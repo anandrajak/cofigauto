@@ -7,6 +7,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.cofigauto.model.TestStatus;
+import com.cofigauto.model.ValidTestStatus;
+
 /**
  * The class <code>TestStatusTest</code> contains tests for the class
  * <code>{@link TestStatus}</code>.

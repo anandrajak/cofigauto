@@ -12,10 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.cofigauto.exception.ToolRuntimeException;
-import com.cofigauto.internal.ValidTestStatus;
 import com.cofigauto.model.AutomationTestCase;
 import com.cofigauto.model.AutomationTestCaseStep;
 import com.cofigauto.model.AutomationTestSuite;
+import com.cofigauto.model.ValidTestStatus;
 
 /**
  * @author Vinay Sharma
