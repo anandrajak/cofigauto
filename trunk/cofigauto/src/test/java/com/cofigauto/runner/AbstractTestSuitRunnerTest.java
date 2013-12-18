@@ -43,15 +43,19 @@ public class AbstractTestSuitRunnerTest extends TestCase {
 
     @Mocked
     ActionCommandFactory factory;
-
     @Mocked
     TestCaseContext.TestCaseContextBuilder builder;
 
     @Test
-    public void testrunTestSuit() {
+    public void testrunTestSuit() throws Exception {
 
         new NonStrictExpectations() {
             {
+                new TestCaseContext.TestCaseContextBuilder();
+                builder.getTestCaseContext();
+                returns(new TestCaseContext());
+               // result = new TestCaseContext.TestCaseContextBuilder();
+
                 ActionCommandFactory.getActionCommand(anyString);
                 result = new ActionCommand() {
                     @Override
@@ -67,21 +71,8 @@ public class AbstractTestSuitRunnerTest extends TestCase {
                         return status;
                     }
                 };
-            }
 
-            {
-                try {
-                    new TestCaseContext.TestCaseContextBuilder(
-                            (AutomationTestCase) any);
-                    TestCaseContext.TestCaseContextBuilder temp = new TestCaseContext.TestCaseContextBuilder();
-                    result =  temp;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    throw new ToolRuntimeException(
-                            "Exception in getting builder", e);
-                }
             }
-
         };
 
         AutomationTestCaseStep dummyStep = null;
