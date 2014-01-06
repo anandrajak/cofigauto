@@ -9,6 +9,8 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.StringUtils;
@@ -31,7 +33,9 @@ public class AutomationTestSuite {
     /**
      * List of test cases
      */
-    @XmlElement(name = "tests", required=false)
+
+    @XmlElementWrapper(name="tests")
+    @XmlElements({ @XmlElement(name = "test", type = AutomationTestCase.class) })
     private final List<AutomationTestCase> tests = new ArrayList<AutomationTestCase>();
 
     /**
@@ -45,14 +49,13 @@ public class AutomationTestSuite {
     private static final Logger LOG = LoggerFactory
             .getLogger(AutomationTestSuite.class);
 
-    
     /**
      * Default Constructor
      */
-    public AutomationTestSuite(){
-        
+    public AutomationTestSuite() {
+
     }
-    
+
     /**
      * Constructor for AutomationTestSuite.
      * 

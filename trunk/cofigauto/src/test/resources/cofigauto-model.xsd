@@ -41,11 +41,27 @@
     <xs:sequence/>
   </xs:complexType>
 
-  <xs:complexType name="automationTestSuite">
+<!--   <xs:complexType name="automationTestSuite">
     <xs:sequence>
-      <xs:element name="tests" type="automationTestCase" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="test" type="automationTestCase" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-  </xs:complexType>
+  </xs:complexType> -->
+
+
+    <xs:complexType name="automationTestSuite">
+      <xs:sequence>
+        <xs:element name="tests">
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="test" type="automationTestCase"/>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+
+
 
   <xs:simpleType name="validTestStatus">
     <xs:restriction base="xs:string">
