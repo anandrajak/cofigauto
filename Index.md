@@ -1,0 +1,22 @@
+# Cofigauto Wiki #
+
+
+  * [Project Home](https://code.google.com/p/cofigauto/)
+  * [About Cofigauto](AboutCofigauto.md)
+  * [Downloads](Downloads.md)
+  * [Running Tool](RunningTool.md)
+    * [Tool Folder Structure](RunningTool#Tool_Structure.md)
+    * [Run through .bat file (windows)](RunningTool#Run_through_.bat_file_(windows).md)
+    * [Run directly from Cofigauto JAR file](RunningTool#Run_directly_from_Cofigauto_JAR_file.md)
+  * [Cofigauto in action - Test case Example](ExcelFileConfiguration.md)
+    * [Overview - Example test case](ExcelFileConfiguration#Overview_-_Example_test_case.md)
+    * [Example Test Case Explained ](ExcelFileConfiguration#Example_Test_Case_Explained.md)
+      * [Excel - Main Sheet Configuration ](ExcelFileConfiguration#Excel_-_Main_Sheet_Configuration.md)
+      * [Excel - Test Case Configuration ](ExcelFileConfiguration#Excel_-_Test_Case_Configuration.md)
+      * [Actions supported by tool ](ExcelFileConfiguration#Actions_supported_by_tool.md)
+      * [Browsers Supported by tool ](ExcelFileConfiguration#Browsers_Supported_by_tool.md)
+      * [Element Identifiers ](ExcelFileConfiguration#Element_Identifiers.md)
+  * [Create your own action command](RegisterYourOwnCommand.md)
+  * [Contact Us](Contact_Us.md)
+  * [Cofigauto Team](CofigautoTeam.md)
+  * [Cofigauto Website](http://www.cofigauto.com)
